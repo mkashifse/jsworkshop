@@ -1,0 +1,65 @@
+:root {
+  --prim: #464646;
+  --prim-trans: #464646f0;
+  --prim-light: #464646;
+  --sec: #7d8083;
+}
+
+main {
+  background: url(./bg.jpg);
+  background-size: cover;
+}
+
+.bg-prim {
+  background: var(--prim);
+}
+.bg-prim-trans {
+  background: var(--prim-trans);
+}
+.bg-sec {
+  background: var(--sec);
+}
+
+.flex {
+  display: flex;
+}
+
+.left-panel {
+  width: 20%;
+}
+
+.right-panel {
+  width: 80%;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background: var(--prim);
+}
+
+.shade-top {
+  height: 30vh;
+  background: rgba(61, 61, 61, 1);
+  background: linear-gradient(
+    to bottom,
+    rgba(61, 61, 61, 1) 0%,
+    rgba(57, 57, 57, 1) 44%,
+    rgba(53, 53, 53, 0.39) 81%,
+    rgba(51, 51, 51, 0) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3d', endColorstr='#333333', GradientType=0 );
+}
+
+.shade-bottom {
+  height: 30vh;
+  background: rgba(51, 51, 51, 0);
+  background: linear-gradient(
+    to bottom,
+    rgba(51, 51, 51, 0) 0%,
+    rgba(53, 53, 53, 0.39) 19%,
+    rgba(57, 57, 57, 1) 56%,
+    rgba(61, 61, 61, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#3d3d3d', GradientType=0 );
+}
