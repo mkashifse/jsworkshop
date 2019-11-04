@@ -14,7 +14,7 @@
   </head>
   <body>
     <main id="app" class="w-screen flex bg-red-600 h-screen">
-      <div class="left-panel bg-prim-trans">
+      <div class="left-panel bg-prim-trans shadow-2xl">
         <nav class="">
           <ul class=" h-screen relative z-20">
             <li class="absolute h-1/2 top-0 shade-top w-full"></li>
@@ -31,11 +31,9 @@
           </ul>
         </nav>
       </div>
-      <div class="right-panel">
-        <div class="flex mb-6" v-for="(r,j) in rows" :key="j">
-          <div class="w-1/6 h-64 px-4" v-for="(c,i) in cards" :key="i">
-            <div class="card"></div>
-          </div>
+      <div class="right-panel pt-64 pl-12 overflow-scroll">
+        <div class="flex mb-6 " v-for="(r,j) in rows" :key="j">
+          <div class="card rounded" v-for="(c,i) in cards" :key="i"></div>
         </div>
       </div>
     </main>
@@ -45,7 +43,7 @@
         el: "#app",
         data: {
           rows: new Array(3).fill(100),
-          cards: new Array(5).fill(100),
+          cards: new Array(10).fill(100),
           menu: new Array(10).fill(100)
         }
       });
