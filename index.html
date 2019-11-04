@@ -13,27 +13,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <main id="app" class="w-screen flex bg-red-600 h-screen">
+    <main id="app" class="w-screen flex h-screen ">
       <div class="left-panel bg-prim-trans shadow-2xl">
         <nav class="">
           <ul class=" h-screen relative z-20">
-            <li class="absolute h-1/2 top-0 shade-top w-full"></li>
+            <li class="absolute h-1/2 top-0 shade shade-top w-full"></li>
+            <div class="overflow-y-scroll h-screen">
+              <li
+                v-for="(m,i) in menu"
+                class="text-white text-2xl text-center py-6"
+                :class="i ==5 ? 'bg-sec shadow-lg' : ''"
+              >
+                Menu
+              </li>
+            </div>
             <li
-              v-for="(m,i) in menu"
-              class="text-white text-2xl text-center py-6"
-              :class="i ==5 ? 'bg-sec shadow-lg' : ''"
-            >
-              Menu
-            </li>
-            <li
-              class="absolute h-1/2 bottom-0 w-full  shade-bottom bg-red-30"
+              class="absolute h-1/2 bottom-0 w-full shade shade-bottom bg-red-30"
             ></li>
           </ul>
         </nav>
       </div>
-      <div class="right-panel pt-64 pl-12 overflow-scroll">
-        <div class="flex mb-6 " v-for="(r,j) in rows" :key="j">
-          <div class="card rounded" v-for="(c,i) in cards" :key="i"></div>
+      <div class="right-panel overflow-scroll">
+        <div class="mt-32">
+          <div class="flex mb-6 " v-for="(r,j) in rows" :key="j">
+            <div class="card rounded" v-for="(c,i) in cards" :key="i"></div>
+          </div>
         </div>
       </div>
     </main>
@@ -44,7 +48,7 @@
         data: {
           rows: new Array(3).fill(100),
           cards: new Array(10).fill(100),
-          menu: new Array(10).fill(100)
+          menu: new Array(20).fill(100)
         }
       });
     </script>
