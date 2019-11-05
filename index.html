@@ -19,13 +19,14 @@
           <ul class=" h-screen relative z-20">
             <li class="absolute h-1/2 top-0 shade shade-top w-full"></li>
             <div class="overflow-hidden h-screen" id="menu">
-              <li
+              <li class="text-white text-2xl text-center py-6"></li>
+              <!-- <li
+                id="li"
                 v-for="(m,i) in menu"
                 class="text-white text-2xl text-center py-6"
-                :class="i ==5 ? 'bg-sec shadow-lg' : ''"
               >
-                Menu
-              </li>
+                Menu {{ i }}
+              </li> -->
             </div>
             <li
               class="absolute h-1/2 bottom-0 w-full shade shade-bottom bg-red-30"
@@ -43,42 +44,15 @@
     </main>
 
     <script>
-      var app = new Vue({
-        el: "#app",
-        data: {
-          rows: new Array(3).fill(100),
-          cards: new Array(10).fill(100),
-          menu: new Array(20).fill(100)
-        }
-      });
-      const menu = document.querySelector("#menu");
-      const sideBar = {
-        el: document.querySelector("#sidebar"),
-        show() {
-          this.el.setAttribute("style", "display:block");
-        },
-        hide() {
-          this.el.setAttribute("style", "display:none");
-        }
-      };
-      document.onkeyup = event => {
-        if (event.key === "ArrowLeft") {
-          event.stopImmediatePropagation();
-          event.preventDefault();
-          sideBar.hide();
-        } else if (event.key === "ArrowRight") {
-          event.stopImmediatePropagation();
-          event.preventDefault();
-          sideBar.show();
-        }
-        if (event.key === "ArrowUp") {
-          console.log(
-            menu.scrollTo({
-              top: 200
-            })
-          );
-        }
-      };
+      // var app = new Vue({
+      //   el: "#app",
+      //   data: {
+      //     rows: new Array(3).fill(100),
+      //     cards: new Array(10).fill(100),
+      //     menu: new Array(20).fill(100)
+      //   }
+      // });
     </script>
+    <script src="app.js"></script>
   </body>
 </html>
