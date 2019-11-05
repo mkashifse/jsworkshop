@@ -14,11 +14,11 @@
   </head>
   <body>
     <main id="app" class="w-screen flex h-screen ">
-      <div class="left-panel bg-prim-trans shadow-2xl">
+      <div id="sidebar" class="left-panel bg-prim-trans shadow-2xl">
         <nav class="">
           <ul class=" h-screen relative z-20">
             <li class="absolute h-1/2 top-0 shade shade-top w-full"></li>
-            <div class="overflow-y-scroll h-screen">
+            <div class="overflow-hidden h-screen" id="menu">
               <li
                 v-for="(m,i) in menu"
                 class="text-white text-2xl text-center py-6"
@@ -33,7 +33,7 @@
           </ul>
         </nav>
       </div>
-      <div class="right-panel overflow-scroll">
+      <div class="right-panel overflow-hidden">
         <div class="mt-32">
           <div class="flex mb-6 " v-for="(r,j) in rows" :key="j">
             <div class="card rounded" v-for="(c,i) in cards" :key="i"></div>
@@ -51,6 +51,34 @@
           menu: new Array(20).fill(100)
         }
       });
+      const menu = document.querySelector("#menu");
+      const sideBar = {
+        el: document.querySelector("#sidebar"),
+        show() {
+          this.el.setAttribute("style", "display:block");
+        },
+        hide() {
+          this.el.setAttribute("style", "display:none");
+        }
+      };
+      document.onkeyup = event => {
+        if (event.key === "ArrowLeft") {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+          sideBar.hide();
+        } else if (event.key === "ArrowRight") {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+          sideBar.show();
+        }
+        if (event.key === "ArrowUp") {
+          console.log(
+            menu.scrollTo({
+              top: 200
+            })
+          );
+        }
+      };
     </script>
   </body>
 </html>
